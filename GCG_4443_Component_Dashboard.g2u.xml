@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SyntaxEdit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BorderStyle>None</BorderStyle>
+  <Pages>
+    <DefaultPage>
+      <Header>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Header>
+      <Footer>
+        <Offset>
+          <X>0</X>
+          <Y>0</Y>
+        </Offset>
+      </Footer>
+      <PageSize>
+        <Width>0</Width>
+        <Height>0</Height>
+      </PageSize>
+    </DefaultPage>
+  </Pages>
+  <DisplayStrings />
+  <Selection>
+    <SelectionRect>
+      <Location>
+        <X>0</X>
+        <Y>226</Y>
+      </Location>
+      <Size>
+        <Width>24</Width>
+        <Height>2</Height>
+      </Size>
+      <X>0</X>
+      <Y>226</Y>
+      <Width>24</Width>
+      <Height>2</Height>
+    </SelectionRect>
+    <Options>UseColors OverwriteBlocks SelectLineOnTripleClick CopyLineWhenEmpty SelectWordOnCtrlClick</Options>
+  </Selection>
+  <Gutter>
+    <LineNumbersForeColor>WindowText</LineNumbersForeColor>
+    <Options>PaintLineNumbers PaintBookMarks PaintLineModificators</Options>
+  </Gutter>
+  <Margin>
+    <Visible>false</Visible>
+  </Margin>
+  <LineStyles />
+  <LineSeparator />
+  <Printing>
+    <Footer>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Footer>
+    <Header>
+      <Offset>
+        <X>0</X>
+        <Y>0</Y>
+      </Offset>
+    </Header>
+  </Printing>
+  <WhiteSpace />
+  <TextSource>
+    <Position>
+      <X>0</X>
+      <Y>226</Y>
+    </Position>
+    <Lexer>
+      <Scheme>
+        <Author>Quantum Whale, LLC.</Author>
+        <Copyright>Copyright (c) 2004 - 2014 Quantum Whale LLC.</Copyright>
+        <FileType>gas</FileType>
+        <Version>1.5</Version>
+        <Styles>
+          <Style>
+            <Name>idents</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>numbers</Name>
+            <ForeColor>ControlText</ForeColor>
+          </Style>
+          <Style>
+            <Name>reswords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>comments</Name>
+            <ForeColor>Green</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>xmlcomments</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>symbols</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>whitespace</Name>
+            <ForeColor>WindowText</ForeColor>
+          </Style>
+          <Style>
+            <Name>strings</Name>
+            <ForeColor>Maroon</ForeColor>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>directives</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>htmlparams</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>syntax errors</Name>
+            <ForeColor>Red</ForeColor>
+          </Style>
+          <Style>
+            <Name>codes nippets</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>255:180:228:180</BackColor>
+          </Style>
+          <Style>
+            <Name>GabReservedWords</Name>
+            <ForeColor>Blue</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabTokenWithBrackets</Name>
+            <ForeColor>Gray</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabFunctionIntrinsicDebug</Name>
+            <ForeColor>White</ForeColor>
+            <BackColor>Red</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+          <Style>
+            <Name>GabVariable</Name>
+            <ForeColor>Teal</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabVariableSystemDefined</Name>
+            <ForeColor>Teal</ForeColor>
+            <FontStyle>Bold Italic</FontStyle>
+          </Style>
+          <Style>
+            <Name>GabGui</Name>
+            <ForeColor>OrangeRed</ForeColor>
+          </Style>
+          <Style>
+            <Name>GabProgramSubStartEnd</Name>
+            <ForeColor>Black</ForeColor>
+            <BackColor>LightGray</BackColor>
+            <FontStyle>Bold</FontStyle>
+            <PlainText>true</PlainText>
+          </Style>
+        </Styles>
+      </Scheme>
+    </Lexer>
+    <TextStrings>
+      <Lines>
+        <string>Program.Sub.ScreenSU.Start</string>
+        <string>Gui.Form..Create</string>
+        <string>Gui.Form..Size(15360,10695)</string>
+        <string>Gui.Form..MinX(0)</string>
+        <string>Gui.Form..MinY(0)</string>
+        <string>Gui.Form..Position(0,0)</string>
+        <string>Gui.Form..BackColor(-2147483633)</string>
+        <string>Gui.Form..MousePointer(0)</string>
+        <string>Gui.Form..Event(UnLoad,Form_UnLoad)</string>
+        <string>Gui.Form..Caption("Component Dashboard")</string>
+        <string>Gui.Form.lblWO.Create(Label,"Work Order",True,1935,255,0,105,240,True,0,"Arial",8,-2147483633,0)</string>
+        <string>Gui.Form.GsGridControl1.Create(GsGridControl)</string>
+        <string>Gui.Form.GsGridControl1.Size(14970,9180)</string>
+        <string>Gui.Form.GsGridControl1.Position(105,885)</string>
+        <string>Gui.Form.txtWO.Create(TextBox,"",True,2085,300,0,105,480,True,0,"Arial",8,-2147483643,1)</string>
+        <string>Gui.Form.txtWO.Event(KeyPressEnter,txtWO_KeyPressEnter)</string>
+        <string>Program.Sub.ScreenSU.End</string>
+        <string />
+        <string>Program.Sub.Preflight.Start</string>
+        <string>Program.Sub.Preflight.End</string>
+        <string />
+        <string>Program.Sub.Main.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Main_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.sTemp.Declare(String)</string>
+        <string />
+        <string>F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PPass,V.Ambient.PUser)</string>
+        <string />
+        <string>F.Intrinsic.Control.SelectCase(V.Caller.Hook)</string>
+        <string>	F.Intrinsic.Control.Case(15710)</string>
+        <string>		V.Passed.000021.Set("Component")</string>
+        <string>	</string>
+        <string>	F.Intrinsic.Control.Case(15780)</string>
+        <string>		F.Intrinsic.String.Build("Part*!*Description*!*Sales Order","",V.Local.sTemp)</string>
+        <string>		F.Data.DataTable.CreateFromString("Temp","*!*",V.Local.sTemp,"String*!*String*!*String","*!*","@!@",True)</string>
+        <string>		Gui.Form.GsGridControl1.AddGridviewFromDatatable("Temp","Temp")</string>
+        <string>		gui.Form.GsGridControl1.SetColumnProperty("Temp","Description","MinWidth","250")</string>
+        <string>		gui.Form.GsGridControl1.SetColumnProperty("Temp","Part","MinWidth","75")</string>
+        <string>		gui.Form.GsGridControl1.SetColumnProperty("Temp","Sales Order","Caption","Sales Order")</string>
+        <string>		gui.Form.GsGridControl1.SetColumnProperty("Temp","Part","HeaderBackColor","#d3d3d3")</string>
+        <string>		gui.Form.GsGridControl1.SetColumnProperty("Temp","Description","HeaderBackColor","#d3d3d3")</string>
+        <string>		gui.Form.GsGridControl1.SetColumnProperty("Temp","Sales Order","HeaderBackColor","#d3d3d3")</string>
+        <string>			</string>
+        <string>		gui.Form.GsGridControl1.MainView("Temp")</string>
+        <string>		</string>
+        <string>		gui.Form.GsGridControl1.Anchor(15)</string>
+        <string>		</string>
+        <string>		gui.Form..Show</string>
+        <string>		</string>
+        <string>		gui.Form.txtWO.SetFocus</string>
+        <string>		gui.Form.txtWO.SelectAll</string>
+        <string>		</string>
+        <string>		F.Data.DataTable.Close("Temp")</string>
+        <string>	</string>
+        <string>F.Intrinsic.Control.EndSelect</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Main_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(form_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Main.End</string>
+        <string />
+        <string>Program.Sub.Form_UnLoad.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("Form_UnLoad_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string />
+        <string>'Check to see if datatable/view exist if so close them</string>
+        <string>F.Intrinsic.Control.If(V.DataView.JobHeader$Operation!JobOp.Exists,=,True)</string>
+        <string>	F.Data.DataView.Close("JobHeader$Operation","JobOp")</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.DataTable.JobHeader.Exists,=,True)</string>
+        <string>	F.Data.DataTable.Close("JobHeader")</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.DataTable.JobHeader$Operation.Exists,=,True)</string>
+        <string>	F.Data.DataTable.Close("JobHeader$Operation")</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.ODBC.Connection!con.Close</string>
+        <string>F.Intrinsic.Control.End</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("Form_UnLoad_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.End</string>
+        <string />
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.Form_UnLoad.End</string>
+        <string />
+        <string>Program.Sub.txtWO_KeyPressEnter.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("txtWO_KeyPressEnter_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.sWo.Declare(String)</string>
+        <string />
+        <string>F.Intrinsic.String.Split(V.Screen.Form!txtWO.Text,"%",V.Local.sWo)</string>
+        <string />
+        <string>F.Intrinsic.String.Left(V.Local.sWo(1),6,V.Local.sWo)</string>
+        <string>gui.Form.txtWO.Text(V.Local.sWo)</string>
+        <string />
+        <string>F.Intrinsic.Control.CallSub(loadgrid)</string>
+        <string />
+        <string>gui.Form.txtWO.SetFocus</string>
+        <string>gui.Form.txtWO.SelectAll</string>
+        <string />
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("txtWO_KeyPressEnter_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(form_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.txtWO_KeyPressEnter.End</string>
+        <string />
+        <string>Program.Sub.LoadGrid.Start</string>
+        <string>F.Intrinsic.Control.SetErrorHandler("LoadGrid_Err")</string>
+        <string>F.Intrinsic.Control.ClearErrors</string>
+        <string />
+        <string>V.Local.sError.Declare(String)</string>
+        <string>V.Local.sJob.Declare(String)</string>
+        <string>V.Local.fMod.Declare(Float)</string>
+        <string>V.Local.i.Declare(Long)</string>
+        <string />
+        <string>V.Local.sSql.Declare(String)</string>
+        <string />
+        <string>F.Intrinsic.String.Left(V.Screen.Form!txtWO.Text,6,V.Local.sJob)</string>
+        <string />
+        <string>'Check to see if datatable/view exist if so close them</string>
+        <string>F.Intrinsic.Control.If(V.DataView.JobHeader$Operation!JobOp.Exists,=,True)</string>
+        <string>	F.Data.DataView.Close("JobHeader$Operation","JobOp")</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.DataTable.JobHeader.Exists,=,True)</string>
+        <string>	F.Data.DataTable.Close("JobHeader")</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.DataTable.JobHeader$Operation.Exists,=,True)</string>
+        <string>	F.Data.DataTable.Close("JobHeader$Operation")</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>F.Intrinsic.String.Build("Select Job, Part, Description, Sales_Order, Qty_Order From V_Job_Header Where Job = '{0}' and Suffix = '000'",V.Local.sJob,V.Local.sSql)</string>
+        <string>F.Data.DataTable.CreateFromSQL("JobHeader","con",V.Local.sSql,True)</string>
+        <string>F.Data.DataView.Create("JobHeader","JobHeader")</string>
+        <string />
+        <string>gui.Form.GsGridControl1.AddGridViewFromDataView("JobHeader","JobHeader","JobHeader")</string>
+        <string>gui.Form.GsGridControl1.SetGridViewProperty("JobHeader","Editable",False)</string>
+        <string>gui.Form.GsGridControl1.SetGridViewProperty("JobHeader","readonly",True)</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","MinWidth","250")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","MinWidth","75")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","Caption","Sales Order")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","Visible","False")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Job","Visible","False")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","HeaderBackColor","#d3d3d3")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","HeaderBackColor","#d3d3d3")</string>
+        <string>gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","HeaderBackColor","#d3d3d3")</string>
+        <string>gui.Form.GsGridControl1.SetRowAppearance("JobHeader",0,"backcolor","#C3FDB8")</string>
+        <string />
+        <string>F.Intrinsic.Control.If(V.DataTable.JobHeader.RowCount--,&lt;&gt;,-1)</string>
+        <string>	F.Intrinsic.String.Build("Select Job, a.Part, a.Description, ({0} * Hours_Estimated) as Quantity, IF(Code_Source = 'M','Manufacture to Stock',IF(Code_Source = 'P','Purchase to Stock',' ')) as Source From V_Job_Operations a Left Join V_Inventory_Mst2 b on a.part = b.part and Job = '{1}' Where LMO = 'M' and Seq &lt; '990000' and Code_Source = 'P' or Code_Source = 'M' Order by Seq",V.DataTable.JobHeader(V.DataTable.JobHeader.Rowcount--).Qty_Order!FieldValFloat,V.Local.sJob,V.Local.sSql)</string>
+        <string>	</string>
+        <string>	F.Data.DataTable.CreateFromSQL("JobHeader$Operation","con",V.Local.sSql,True)</string>
+        <string>	F.Data.DataView.Create("JobHeader$Operation","JobOp")</string>
+        <string>	</string>
+        <string>	F.Data.DataTable.AddRelation("JobHeader","Job","JobHeader$Operation","Job")</string>
+        <string />
+        <string>	gui.Form.GsGridControl1.AddGridViewFromDataView("JobOp","JobHeader","JobOp")</string>
+        <string>	gui.Form.GsGridControl1.SetGridViewProperty("JobOp","Editable",False)</string>
+        <string>	gui.Form.GsGridControl1.SetGridViewProperty("JobOp","readonly",True)</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","MinWidth","250")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","MinWidth","75")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","Caption","Part Number")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Job","Visible","False")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","HeaderBackColor","#d3d3d3")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","HeaderBackColor","#d3d3d3")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","HeaderBackColor","#d3d3d3")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","HeaderHAlignment","Center")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","CellHAlignment","Center")</string>
+        <string>	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Source","HeaderBackColor","#d3d3d3")</string>
+        <string>	</string>
+        <string>	F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.JobHeader$Operation.RowCount--,1)</string>
+        <string>		F.Intrinsic.Math.Mod(V.Local.i,2,V.Local.fMod)</string>
+        <string>		F.Intrinsic.Control.If(V.Local.fMod,=,0)</string>
+        <string>			gui.Form.GsGridControl1.SetRowAppearance("JobOp",V.Local.i,"backcolor","#C3FDB8")</string>
+        <string>		F.Intrinsic.Control.Else</string>
+        <string>			gui.Form.GsGridControl1.SetRowAppearance("JobOp",V.Local.i,"backcolor","#EBF4FA")</string>
+        <string>		F.Intrinsic.Control.EndIf</string>
+        <string>	F.Intrinsic.Control.Next(V.Local.i)</string>
+        <string>	</string>
+        <string>F.Intrinsic.Control.EndIf</string>
+        <string />
+        <string>gui.Form.GsGridControl1.MainView("JobHeader")</string>
+        <string />
+        <string>gui.Form.GsGridControl1.ExpandMasterRow("JobHeader",0)</string>
+        <string>		</string>
+        <string>F.Intrinsic.Control.ExitSub</string>
+        <string />
+        <string>F.Intrinsic.Control.Label("LoadGrid_Err")</string>
+        <string>F.Intrinsic.Control.If(V.Ambient.ErrorNumber,&lt;&gt;,0)</string>
+        <string>	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)</string>
+        <string>	F.Intrinsic.UI.Msgbox(V.Local.sError)</string>
+        <string>	F.Intrinsic.Control.CallSub(form_unload)</string>
+        <string>Function.Intrinsic.Control.EndIf</string>
+        <string />
+        <string />
+        <string>Program.Sub.LoadGrid.End</string>
+        <string />
+        <string>Program.Sub.Comments.Start</string>
+        <string>${$0$}$GCG_4443_Component_Dashboard.g2u$}$RLK$}$3/30/2017 3:27:14 PM$}$False</string>
+        <string>Program.Sub.Comments.End</string>
+      </Lines>
+    </TextStrings>
+  </TextSource>
+  <Scrolling>
+    <WindowOriginY>156</WindowOriginY>
+    <Options>None</Options>
+  </Scrolling>
+  <Outlining>
+    <AllowOutlining>true</AllowOutlining>
+    <ImageSize>8</ImageSize>
+    <Ranges>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>0</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>16</Y>
+        </EndPoint>
+        <Text>Program.Sub.ScreenSU</Text>
+        <DisplayText>Program.Sub.ScreenSU</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>18</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>19</Y>
+        </EndPoint>
+        <Text>Program.Sub.Preflight</Text>
+        <DisplayText>Program.Sub.Preflight</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>21</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>68</Y>
+        </EndPoint>
+        <Text>Program.Sub.Main</Text>
+        <DisplayText>Program.Sub.Main</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>70</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>103</Y>
+        </EndPoint>
+        <Text>Program.Sub.Form_UnLoad</Text>
+        <DisplayText>Program.Sub.Form_UnLoad</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>105</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>132</Y>
+        </EndPoint>
+        <Text>Program.Sub.txtWO_KeyPressEnter</Text>
+        <DisplayText>Program.Sub.txtWO_KeyPressEnter</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>134</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>224</Y>
+        </EndPoint>
+        <Text>Program.Sub.LoadGrid</Text>
+        <DisplayText>Program.Sub.LoadGrid</DisplayText>
+        <Visible>true</Visible>
+        <Level>0</Level>
+      </Range>
+      <Range>
+        <StartPoint>
+          <X>0</X>
+          <Y>226</Y>
+        </StartPoint>
+        <EndPoint>
+          <X>2147483647</X>
+          <Y>228</Y>
+        </EndPoint>
+        <Text>Program.Sub.Comments</Text>
+        <DisplayText>Program.Sub.Comments</DisplayText>
+        <Visible>false</Visible>
+        <Level>0</Level>
+      </Range>
+    </Ranges>
+  </Outlining>
+  <HyperText />
+  <Spelling />
+  <Braces />
+</SyntaxEdit>
