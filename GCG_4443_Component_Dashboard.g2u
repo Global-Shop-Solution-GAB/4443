@@ -1,0 +1,314 @@
+Program.Sub.ScreenSU.Start
+Gui.Form..Create
+Gui.Form..Size(15360,10695)
+Gui.Form..MinX(0)
+Gui.Form..MinY(0)
+Gui.Form..Position(0,0)
+Gui.Form..BackColor(-2147483633)
+Gui.Form..MousePointer(0)
+Gui.Form..Event(UnLoad,Form_UnLoad)
+Gui.Form..Caption("Component Dashboard")
+Gui.Form.lblWO.Create(Label,"Work Order",True,1935,255,0,105,240,True,0,"Arial",8,-2147483633,0)
+Gui.Form.GsGridControl1.Create(GsGridControl)
+Gui.Form.GsGridControl1.Size(14970,9180)
+Gui.Form.GsGridControl1.Position(105,885)
+Gui.Form.txtWO.Create(TextBox,"",True,2085,300,0,105,480,True,0,"Arial",8,-2147483643,1)
+Gui.Form.txtWO.Event(KeyPressEnter,txtWO_KeyPressEnter)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sTemp.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	F.Intrinsic.Control.Case(15710)
+		V.Passed.000021.Set("Compo Dash")
+
+'	F.Intrinsic.Control.Case(15780)
+	F.Intrinsic.Control.CaseElse
+		F.Intrinsic.String.Build("Part*!*Description*!*Sales Order*!*Qty Order","",V.Local.sTemp)
+		F.Data.DataTable.CreateFromString("Temp","*!*",V.Local.sTemp,"String*!*String*!*String*!*String","*!*","@!@",True)
+		Gui.Form.GsGridControl1.AddGridviewFromDatatable("Temp","Temp")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Description","MinWidth","250")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Part","MinWidth","75")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Sales Order","Caption","Sales Order")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Part","HeaderBackColor","#d3d3d3")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Description","HeaderBackColor","#d3d3d3")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Sales Order","HeaderBackColor","#d3d3d3")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Qty Order","HeaderBackColor","#d3d3d3")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Part","HeaderFontSize","16")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Description","HeaderFontSize","16")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Sales Order","HeaderFontSize","16")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Qty Order","HeaderFontSize","16")
+		Gui.Form.GsGridControl1.SetGridviewProperty("Temp","ColumnPanelRowHeight","30")
+		Gui.Form.GsGridControl1.SetGridviewProperty("Temp","OptionsViewRowAutoHeight",True)
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Part","HeaderWordWrap","wrap")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Description","HeaderWordWrap","wrap")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Sales Order","HeaderWordWrap","wrap")
+		gui.Form.GsGridControl1.SetColumnProperty("Temp","Qty Order","HeaderWordWrap","wrap")
+
+		gui.Form.GsGridControl1.MainView("Temp")
+
+		gui.Form.GsGridControl1.Anchor(15)
+
+		gui.Form..Show
+
+		gui.Form.txtWO.SetFocus
+		gui.Form.txtWO.SelectAll
+
+		F.Data.DataTable.Close("Temp")
+
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(form_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.Form_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("Form_UnLoad_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'Check to see if datatable/view exist if so close them
+F.Intrinsic.Control.If(V.DataView.JobHeader$Operation!JobOp.Exists,=,True)
+	F.Data.DataView.Close("JobHeader$Operation","JobOp")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.JobHeader.Exists,=,True)
+	F.Data.DataTable.Close("JobHeader")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.JobHeader$Operation.Exists,=,True)
+	F.Data.DataTable.Close("JobHeader$Operation")
+F.Intrinsic.Control.EndIf
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Form_UnLoad_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.txtWO_KeyPressEnter.Start
+F.Intrinsic.Control.SetErrorHandler("txtWO_KeyPressEnter_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sWo.Declare(String)
+
+F.Intrinsic.String.Split(V.Screen.Form!txtWO.Text,"%",V.Local.sWo)
+
+F.Intrinsic.String.Left(V.Local.sWo(1),9,V.Local.sWo)
+gui.Form.txtWO.Text(V.Local.sWo)
+
+F.Intrinsic.Control.CallSub(loadgrid)
+
+gui.Form.txtWO.SetFocus
+gui.Form.txtWO.SelectAll
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("txtWO_KeyPressEnter_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(form_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.txtWO_KeyPressEnter.End
+
+Program.Sub.LoadGrid.Start
+F.Intrinsic.Control.SetErrorHandler("LoadGrid_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.fMod.Declare(Float)
+V.Local.i.Declare(Long)
+V.Local.sSuffix.Declare(String)
+V.Local.sPart.Declare(String)
+
+V.Local.sSql.Declare(String)
+
+F.Intrinsic.String.Left(V.Screen.Form!txtWO.Text,6,V.Local.sJob)
+F.Intrinsic.String.Mid(V.Screen.Form!txtWO.Text,7,3,V.Local.sSuffix)
+
+'Check to see if datatable/view exist if so close them
+F.Intrinsic.Control.If(V.DataView.JobHeader$Operation!JobOp.Exists,=,True)
+	F.Data.DataView.Close("JobHeader$Operation","JobOp")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.JobHeader.Exists,=,True)
+	F.Data.DataTable.Close("JobHeader")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.JobHeader$Operation.Exists,=,True)
+	F.Data.DataTable.Close("JobHeader$Operation")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("Select Job, Part, Description, Sales_Order, Qty_Order From V_Job_Header Where Job = '{0}' and Suffix = '000'",V.Local.sJob,V.Local.sSql)
+F.Data.DataTable.CreateFromSQL("JobHeader","con",V.Local.sSql,True)
+F.Data.DataView.Create("JobHeader","JobHeader")
+
+gui.Form.GsGridControl1.AddGridViewFromDataView("JobHeader","JobHeader","JobHeader")
+gui.Form.GsGridControl1.SetGridViewProperty("JobHeader","Editable",False)
+gui.Form.GsGridControl1.SetGridViewProperty("JobHeader","readonly",True)
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","MinWidth","250")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","MinWidth","75")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","Caption","Sales Order")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","Caption","Qty Order")
+'gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","Visible",False)
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Job","Visible",False)
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","HeaderBackColor","#d3d3d3")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","HeaderBackColor","#d3d3d3")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","HeaderBackColor","#d3d3d3")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","HeaderBackColor","#d3d3d3")
+gui.Form.GsGridControl1.SetRowAppearance("JobHeader",0,"backcolor","#C3FDB8")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","HeaderFontSize","16")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","HeaderFontSize","16")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","HeaderFontSize","16")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","HeaderFontSize","16")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","CellFontSize","14")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","CellFontSize","14")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","CellFontSize","14")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","CellFontSize","14")
+Gui.Form.GsGridControl1.SetGridviewProperty("JobHeader","OptionsViewRowAutoHeight",True)
+Gui.Form.GsGridControl1.SetGridviewProperty("JobHeader","ColumnPanelRowHeight","30")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","HeaderWordWrap","Wrap")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","HeaderWordWrap","Wrap")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","HeaderWordWrap","Wrap")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","HeaderWordWrap","Wrap")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Part","CellWordWrap","Wrap")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Description","CellWordWrap","Wrap")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Sales_Order","CellWordWrap","Wrap")
+gui.Form.GsGridControl1.SetColumnProperty("JobHeader","Qty_Order","CellWordWrap","Wrap")
+
+F.Intrinsic.Control.If(V.DataTable.JobHeader.RowCount--,<>,-1)
+'	F.Intrinsic.String.Build("Select Job, a.Part, a.Description, ({0} * Hours_Estimated) as Quantity, IF(Code_Source = 'M','Manufacture to Stock',IF(Code_Source = 'P','Purchase to Stock',' ')) as Source From V_Job_Operations a Left Join V_Inventory_Mst2 b on a.part = b.part and Job = '{1}' and Suffix = '{2}' Where LMO = 'M' and Seq < '990000' and Code_Source = 'P' or Code_Source = 'M' Order by Seq",V.DataTable.JobHeader(V.DataTable.JobHeader.Rowcount--).Qty_Order!FieldValFloat,V.Local.sJob,V.Local.sSuffix,V.Local.sSql)
+	F.Intrinsic.String.Build("select Job, Parent, a.Part, d.Description,({0} * Quantity) as Quantity, IF(a.Category = 'P','Pht',IF(a.Category = 'R','Ref',IF(a.Category = 'X','Xcl',IF(a.Category = 'S','Set','Nor')))) as Category, IF(a.Source = 'M','Manufacture to Stock',IF(a.Source = 'P','Purchase to Stock',' ')) as Source From V_Bom_Mstr a left join V_Inventory_Mst2 b on a.part = b.part left join V_Job_Operations c on a.part = c.part and Job = '{1}' and suffix = '{2}' left join V_Bom_Eng d on a.part = d.part where parent = '{3}' and part <> '' and (a.Source = 'M' or a.Source = 'P')",V.DataTable.JobHeader(V.DataTable.JobHeader.Rowcount--).Qty_Order!FieldValFloat,V.Local.sJob,V.Local.sSuffix,V.DataTable.JobHeader(V.DataTable.JobHeader.Rowcount--).Part!FieldValTrim,V.Local.sSql)
+
+	F.Data.DataTable.CreateFromSQL("JobHeader$Operation","con",V.Local.sSql,True)
+	F.Data.DataTable.AddColumn("JobHeader$Operation","Bin","String")
+
+	F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.JobHeader$Operation.Rowcount--,1)
+		F.Intrinsic.Control.If(V.Local.sPart.Length,=,0)
+			F.Intrinsic.String.Build("'{0}'",V.DataTable.JobHeader$Operation(V.Local.i).Part!FieldValTrim,V.Local.sPart)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0},'{1}'",V.Local.sPart,V.DataTable.JobHeader$Operation(V.Local.i).Part!FieldValTrim,V.Local.sPart)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i)
+
+	F.Intrinsic.Control.If(V.DataTable.JobHeader$Operation.RowCount--,<>,-1)
+		F.Intrinsic.String.Build("Select Part, Bin From V_Inventory_Mstr Where Part IN ({0}) and Bin <> ''",V.Local.sPart,V.Local.sSql)
+		F.Data.Dictionary.CreateFromSQL("Bin","con",V.Local.sSql)
+		F.Data.Dictionary.SetDefaultReturn("Bin"," ")
+		F.Data.DataTable.FillFromDictionary("JobHeader$Operation","Bin","Part","Bin")
+		F.Data.Dictionary.Close("Bin")
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Create("JobHeader$Operation","JobOp")
+
+	F.Data.DataTable.AddRelation("JobHeader","Part","JobHeader$Operation","Parent")
+
+	gui.Form.GsGridControl1.AddGridViewFromDataView("JobOp","JobHeader","JobOp")
+	gui.Form.GsGridControl1.SetGridViewProperty("JobOp","Editable",False)
+	gui.Form.GsGridControl1.SetGridViewProperty("JobOp","readonly",True)
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","MinWidth","250")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","MinWidth","75")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","Caption","Part Number")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Job","Visible",False)
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Parent","Visible",False)
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","HeaderBackColor","#d3d3d3")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","HeaderBackColor","#d3d3d3")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","HeaderBackColor","#d3d3d3")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","HeaderHAlignment","Center")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","CellHAlignment","Center")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Category","HeaderBackColor","#d3d3d3")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Source","HeaderBackColor","#d3d3d3")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Bin","HeaderBackColor","#d3d3d3")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","HeaderFontSize","16")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","HeaderFontSize","16")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","HeaderFontSize","16")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Category","HeaderFontSize","16")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Source","HeaderFontSize","16")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Bin","HeaderFontSize","16")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","CellFontSize","14")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","CellFontSize","14")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","CellFontSize","14")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Category","CellFontSize","14")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Source","CellFontSize","14")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Bin","CellFontSize","14")
+	Gui.Form.GsGridControl1.SetGridviewProperty("JobOp","OptionsViewRowAutoHeight",True)
+	Gui.Form.GsGridControl1.SetGridviewProperty("JobOp","ColumnPanelRowHeight","30")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","HeaderWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","HeaderWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","HeaderWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Category","HeaderWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Source","CellWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Source","CellWordWrap","Bin")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Part","CellWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Description","CellWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Quantity","CellWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Category","CellWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Source","CellWordWrap","Wrap")
+	gui.Form.GsGridControl1.SetColumnProperty("JobOp","Bin","CellWordWrap","Wrap")
+
+	F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.JobHeader$Operation.RowCount--,1)
+		F.Intrinsic.Math.Mod(V.Local.i,2,V.Local.fMod)
+		F.Intrinsic.Control.If(V.Local.fMod,=,0)
+			gui.Form.GsGridControl1.SetRowAppearance("JobOp",V.Local.i,"backcolor","#C3FDB8")
+		F.Intrinsic.Control.Else
+			gui.Form.GsGridControl1.SetRowAppearance("JobOp",V.Local.i,"backcolor","#EBF4FA")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.i)
+
+F.Intrinsic.Control.EndIf
+
+gui.Form.GsGridControl1.MainView("JobHeader")
+
+F.Intrinsic.Control.If(V.DataTable.JobHeader.RowCount--,<>,-1)
+	gui.Form.GsGridControl1.ExpandMasterRow("JobHeader",0)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadGrid_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GCG_4443_Component_Dashboard.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(form_unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadGrid.End
+
+Program.Sub.Comments.Start
+${$0$}$GCG_4443_Component_Dashboard.g2u$}$RLK$}$3/30/2017 3:27:14 PM$}$False
+Program.Sub.Comments.End
